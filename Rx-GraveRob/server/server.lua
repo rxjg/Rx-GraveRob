@@ -6,7 +6,7 @@ local function Legit(playerId, message)
     local discordMessage = {
         embeds = {
             {
-                title = "Triggeraus yritys",
+                title = "attempted triggering grave",
                 description = message,
                 color = 1085231,
                 fields = {
