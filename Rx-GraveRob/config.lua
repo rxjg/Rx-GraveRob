@@ -3,7 +3,7 @@ Config.RequiredPolice = 2 -- Minimum amont of polices needed to start robbing
 Config.Cooldown = 60 --Seconds 
 Config.NotifyChance = 20 
 Config.neededitem = { neededItem = "shovel" }
-Config.WebhookURL = "https://discord.com/api/webhooks/1332523048984645662/A4-dgQRindj7pwovpM2RJ4NX3j-SRRIJm2vRz-J_-znIu_GBplKSxyIqnAu9T1TxfDAZ"
+Config.WebhookURL = ""
 Config.ItemPool = {
     { item = "money", chance = 100, minCount = 1, maxCount = 2 }
     
