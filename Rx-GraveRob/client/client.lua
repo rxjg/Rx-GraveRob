@@ -7,7 +7,7 @@ local function hasShovel()
     if count == 0 then
         TriggerEvent('ox_lib:notify', {
             title = 'Haudankaivuu',
-            description = 'Tarvitset lapion voidaksesi kaivaa täällä!',
+            description = 'You need Shovel to start Digging!!',
             type = 'error'
         })
         return false
@@ -18,7 +18,7 @@ local function StartDigging(location)
     if digging or cooldown then
         TriggerEvent('ox_lib:notify', {
             title = 'Haudankaivuu',
-            description = 'Sinun täytyy odottaa että voit kaivaa uudelleen!',
+            description = 'You need to wait before you can dig again!',
             type = 'error'
         })
         return
@@ -34,8 +34,8 @@ end
 RegisterNetEvent('rxjg.grave:canDig', function(canDig, location)
     if not canDig then
         TriggerEvent('ox_lib:notify', {
-            title = 'Haudankaivuu',
-            description = 'Ei Tarpeeksi Poliiseja!',
+            title = 'Grave Digging',
+            description = 'Not enough Polices!',
             type = 'error'
         })
         return
@@ -48,8 +48,8 @@ RegisterNetEvent('rxjg.grave:canDig', function(canDig, location)
 
     if not success then
         TriggerEvent('ox_lib:notify', {
-            title = 'Haudankaivuu',
-            description = 'Epäonnistuit kaivamisessa!',
+            title = 'Grave Digging',
+            description = 'You failed digging!',
             type = 'error'
         })
         digging = false
@@ -59,7 +59,7 @@ RegisterNetEvent('rxjg.grave:canDig', function(canDig, location)
 
     exports.ox_lib:progressBar({
         duration = 6000,
-        label = 'Kaivetaan...',
+        label = 'Digging...',
         useWhileDead = false,
         canCancel = true,
         disable = {
@@ -90,7 +90,7 @@ Citizen.CreateThread(function()
                     name = 'grave_dig',
                     event = 'rxjg.grave:startDigging',
                     icon = 'fa-solid fa-shovel',
-                    label = 'Kaiva Hauta'
+                    label = 'Dig Grave'
                 }
             }
         })
@@ -101,7 +101,7 @@ Citizen.CreateThread(function()
             SetBlipColour(blip, 5)
             SetBlipAsShortRange(blip, true)
             BeginTextCommandSetBlipName("STRING")
-            AddTextComponentString("Hauta")
+            AddTextComponentString("Grave")
             EndTextCommandSetBlipName(blip)
         end
     end
@@ -118,7 +118,7 @@ function ToggleBlips()
                 SetBlipColour(blip, 5)
                 SetBlipAsShortRange(blip, true)
                 BeginTextCommandSetBlipName("STRING")
-                AddTextComponentString("Hauta")
+                AddTextComponentString("Grave")
                 EndTextCommandSetBlipName(blip)
                 createdBlips[grave] = blip
             end
@@ -141,8 +141,8 @@ RegisterNetEvent('rxjg.grave:startDigging', function()
         end
     end
     TriggerEvent('ox_lib:notify', {
-        title = 'Haudankaivuu',
-        description = 'Et ole Haudan Lähettyvillä!',
+        title = 'Grave Digging',
+        description = 'You arent near a grave!',
         type = 'error'
     })
 end)
