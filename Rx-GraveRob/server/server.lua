@@ -10,8 +10,8 @@ local function Legit(playerId, message)
                 description = message,
                 color = 1085231,
                 fields = {
-                    { name = "Pelaajan Nimi", value = playerName, inline = true },
-                    { name = "Pelaaajan id", value = tostring(playerId), inline = true }
+                    { name = "Player ID", value = playerName, inline = true },
+                    { name = "Character Name ", value = tostring(playerId), inline = true }
                 }
             }
         }
@@ -69,22 +69,22 @@ RegisterNetEvent('rxjg.grave:attemptDig', function()
         end
     end
     if not isNearGrave then
-        Legit(src, "Yritti triggerata haudankaivuu eventin.")
-        DropPlayer(src, "Vittuu sää yrität.")
+        Legit(src, "Tried to trigger Gravedigging event")
+        DropPlayer(src, ":D You cant trigger this.")
         return
     end
     local item, count = GetRandomItem()
     if item and count > 0 then
         exports.ox_inventory:AddItem(src, item, count)
         TriggerClientEvent('ox_lib:notify', src, {
-            title = 'Haudankaivuu',
-            description = ('Löysit %d x %s!'):format(count, item),
+            title = 'Grave Digging',
+            description = ('You Found %d x %s!'):format(count, item),
             type = 'success'
         })
     else
         TriggerClientEvent('ox_lib:notify', src, {
-            title = 'Haudankaivuu',
-            description = 'Et löytäny mitään...',
+            title = 'Grave Digging',
+            description = 'You didnt found anything...',
             type = 'error'
         })
     end
