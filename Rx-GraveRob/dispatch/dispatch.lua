@@ -5,8 +5,8 @@ function Dispatch.SendGraveRobberyNotification()
     TriggerServerEvent('cd_dispatch:AddNotification', {
         job_table = {'police'},
         coords = data.coords,
-        title = '10-15 - Haudankaivuu',
-        message = 'A '..data.sex..'Kaivaa hautaa'..data.street,
+        title = '10-15 - Grave Digging',
+        message = 'A '..data.sex..'Digging a Grave'..data.street,
         flash = 1,
         unique_id = data.unique_id,
         sound = 1,
@@ -15,7 +15,7 @@ function Dispatch.SendGraveRobberyNotification()
             scale = 1.2,
             colour = 1,
             flashes = true,
-            text = '911 - Haudankaivuu',
+            text = '911 - Grave Digging',
             time = 5,
             radius = 0,
         }
